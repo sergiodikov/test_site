@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::get();
+        return view('auth.categories.index', compact('categories'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.categories.form');
     }
 
     /**
@@ -36,7 +37,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -47,7 +49,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('auth.categories.show', compact('category'));
     }
 
     /**
@@ -58,7 +60,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('auth.categories.form', compact('category'));
     }
 
     /**
@@ -70,7 +72,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -81,6 +84,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }
