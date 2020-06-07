@@ -1,48 +1,38 @@
-@extends('auth.layouts.master')
+@extends('layouts.master')
 
-@section('title', 'Заказы')
+@section('title', 'Оформить заказ')
 
 @section('content')
-    <div class="col-md-12">
-        <h1>Заказы</h1>
-        <table class="table">
-            <tbody>
-            <tr>
-                <th>
-                    #
-                </th>
-                <th>
-                    Имя
-                </th>
-                <th>
-                    Телефон
-                </th>
-                <th>
-                    Когда отправлен
-                </th>
-                <th>
-                    Сумма
-                </th>
-                <th>
-                    Действия
-                </th>
-            </tr>
-            @foreach($orders as $order)
-                <tr>
-                    <td>{{ $order->id}}</td>
-                    <td>{{ $order->name }}</td>
-                    <td>{{ $order->phone }}</td>
-                    <td>{{ $order->created_at->format('H:i d/m/Y') }}</td>
-                    <td>{{ $order->getFullPrice() }} руб.</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a class="btn btn-success" type="button"
-                               href="http://laravel-diplom-1.rdavydov.ru/admin/orders/1">Открыть</a>
+    <h1>Подтвердите заказ:</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <p>Общая стоимость заказа: <b>{{ $order->getFullPrice() }} руб.</b></p>
+            <form action="{{ route('basket-confirm') }}" method="POST">
+                <div>
+                    <p>Укажите свои имя и номер телефона, чтобы наш менеджер мог с вами связаться:</p>
+
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="name" class="control-label col-lg-offset-3 col-lg-2">Имя: </label>
+                            <div class="col-lg-4">
+                                <input type="text" name="name" id="name" value="" class="form-control">
+                            </div>
                         </div>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="phone" class="control-label col-lg-offset-3 col-lg-2">Номер
+                                телефона: </label>
+                            <div class="col-lg-4">
+                                <input type="text" name="phone" id="phone" value="" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    @csrf
+                    <input type="submit" class="btn btn-success" value="Подтвердить заказ">
+                </div>
+            </form>
+        </div>
     </div>
 @endsection

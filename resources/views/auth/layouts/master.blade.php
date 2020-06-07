@@ -34,8 +34,8 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('categories.index')}}">Категория</a></li>
-                    <li><a href="{{route('index')}}">Товары</a></li>
-                    <li><a href="{{route('index')}}">Заказы</a></li>
+                    <li><a href="{{ route('products.index') }}">Товары</a></li>
+                    <li><a href="{{ route('home') }}">Заказы</a></li>
                 </ul>
 
                 @guest
