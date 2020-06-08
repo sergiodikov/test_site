@@ -17,6 +17,8 @@ Auth::routes([
     'verify' => false,
 ]);
 
+Route::get('reset', 'ResetController@reset')->name('reset');
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
 
 Route::middleware(['auth'])->group(function () {
@@ -64,3 +66,4 @@ Route::group(['prefix' => 'basket'], function () {
 
 Route::get('/{category}', 'MainController@category')->name('category');
 Route::get('/{category}/{product?}', 'MainController@product')->name('product');
+
