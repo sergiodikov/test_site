@@ -9,7 +9,7 @@
                 <div class="panel">
                     <h1>Заказ №{{ $order->id }}</h1>
                     <p>Заказчик: <b>{{ $order->name }}</b></p>
-                    <p>Номер телефона: <b>{{ $order->phomne }}</b></p>
+                    <p>Номер теелфона: <b>{{ $order->phomne }}</b></p>
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -20,23 +20,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($skus as $sku)
+                        @foreach ($order->products as $product)
                             <tr>
                                 <td>
-                                    <a href="{{ route('sku', [$sku->product->category->code, $sku->product->code, $sku]) }}">
+                                    <a href="{{ route('product', $product) }}">
                                         <img height="56px"
-                                             src="{{ Storage::url($sku->product->image) }}">
-                                        {{ $sku->product->name }}
+                                             src="{{ Storage::url($product->image) }}">
+                                        {{ $product->name }}
                                     </a>
                                 </td>
-                                <td><span class="badge"> {{ $sku->pivot->count }}</span></td>
-                                <td>{{ $sku->pivot->price }} {{ $order->currency->symbol }}</td>
-                                <td>{{ $sku->pivot->price * $sku->pivot->count }} {{ $order->currency->symbol }}</td>
+                                <td><span class="badge">1</span></td>
+                                <td>{{ $product->price }} руб.</td>
+                                <td>{{ $product->getPriceForCount()}} руб.</td>
                             </tr>
                         @endforeach
                         <tr>
                             <td colspan="3">Общая стоимость:</td>
-                            <td>{{ $order->sum }} {{ $order->currency->symbol }}</td>
+                            <td>{{ $order->getFullPrice() }} руб.</td>
                         </tr>
                         </tbody>
                     </table>

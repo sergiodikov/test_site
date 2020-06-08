@@ -18,19 +18,13 @@ class BasketIsNotEmpty
     {
         $orderId = session('orderId');
 
-        if(is_null($orderId)) {
-            return $this->redirectEmptyBasket();
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            if ($order->products->count() > 0) {
+                return $next($request);
+            }
         }
 
-        $order = Order::findOrFail($orderId);
-        if($order->products->count()==0){
-            return $this->redirectEmptyBasket();
-        }
-        return $next($request);
-    }
-
-    private function redirectEmptyBasket()
-    {
         session()->flash('warning', 'Ваша корзина пуста!');
         return redirect()->route('index');
     }
