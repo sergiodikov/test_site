@@ -5,41 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Интернет Магазин: </title>
+    <title>@lang('main.online_shop'): @yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=3zmOg0pp-uTnpcqXOwT6FDbkb9oeXnGkxS891GSWotW_48cR7MoxzEDo2Q8jBHNK" charset="UTF-8"></script><script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/starter-template.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('index') }}">Интернет Магазин</a>
+            <a class="navbar-brand" href="{{ route('index') }}">@lang('main.online_shop')</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li @routeactive('index')><a href="{{ route('index') }}">Все товары</a></li>
-                <li @routeactive('categor*')><a href="{{ route('categories') }}">Категории</a>
+                <li @routeactive('index')><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
+                <li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a>
                 </li>
-                <li @routeactive('basket*')><a href="{{ route('basket') }}">В корзину</a></li>
-                <li><a href="{{ route('index') }}">Сбросить проект в начальное состояние</a></li> //reset для сброса
+                <li @routeactive('basket*')><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
+                <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>
+                <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 @guest
-                    <li><a href="{{ route('login') }}">Войти</a></li>
+                    <li><a href="{{ route('login') }}">@lang('main.login')</a></li>
                 @endguest
 
                 @auth
                     @admin
-                    <li><a href="{{ route('home') }}">Панель администратора</a></li>
+                    <li><a href="{{ route('home') }}">@lang('main.admin_panel')</a></li>
                 @else
-                    <li><a href="{{ route('person.orders.index') }}">Мои заказы</a></li>
+                    <li><a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a></li>
                     @endadmin
-                    <li><a href="{{ route('get-logout') }}">Выйти</a></li>
+                    <li><a href="{{ route('get-logout') }}">@lang('main.logout')</a></li>
                 @endauth
             </ul>
         </div>
