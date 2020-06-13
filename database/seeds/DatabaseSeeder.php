@@ -1,22 +1,19 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class UsersTableSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Администратор',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('admin'),
-            'is_admin' => 1,
-        ]);
+        $this->call(UsersTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(CurrencySeeder::class);
     }
 }

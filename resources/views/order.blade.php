@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 
 @section('title', __('basket.place_order'))
@@ -6,7 +7,7 @@
     <h1>@lang('basket.approve_order'):</h1>
     <div class="container">
         <div class="row justify-content-center">
-            <p>@lang('basket.full_cost'): <b>{{ $order->calculateFullSum() }} @lang('main.rub').</b></p>
+            <p>@lang('basket.full_cost'): <b>{{ $order->calculateFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</b></p>
             <form action="{{ route('basket-confirm') }}" method="POST">
                 <div>
                     <p>@lang('basket.personal_data'):</p>
