@@ -5,7 +5,7 @@
 @section('content')
     <h1>{{ $skus->product->__('name') }}</h1>
     <h2>{{ $skus->product->category->name }}</h2>
-    <p>@lang('product.price'): <b>{{ $skus->price }} {{ $currencySymbol }}</b></p>
+    <p>@lang('product.price'): <b>{{ \App\Models\Product::getPriceAttribute($skus->price) }} {{ $currencySymbol }}</b></p>
 
     @isset($skus->product->properties)
         @foreach ($skus->propertyOptions as $propertyOption)

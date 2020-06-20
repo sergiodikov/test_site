@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'online_shop' => 'Online Shop',
+    'online_shop' => 'Geek Town',
     'all_products' => 'All products',
     'product' => 'Product',
     'categories' => 'Categories',

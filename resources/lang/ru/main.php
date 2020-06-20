@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'online_shop' => 'Интернет Магазин',
+    'online_shop' => 'Geek Town',
     'all_products' => 'Все товары',
     'product' => 'Товар',
     'categories' => 'Категории',

@@ -75,9 +75,9 @@ class PropertyOptionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Property  $property
-     * @param  \App\Models\PropertyOption  $propertyOption
+     * @param PropertyOptionRequest $request
+     * @param  Property $property
+     * @param  \App\Models\PropertyOption $propertyOption
      * @return \Illuminate\Http\Response
      */
     public function update(PropertyOptionRequest $request, Property $property, PropertyOption $propertyOption)
