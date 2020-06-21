@@ -45,6 +45,7 @@ return [
         'reset' => [
             'driver' => 'local',
             'root' => base_path('resources/images'),
+            'url' => env('APP_URL').'/images',
         ],
 
         'local' => [
