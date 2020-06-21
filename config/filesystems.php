@@ -44,7 +44,7 @@ return [
     'disks' => [
         'reset' => [
             'driver' => 'local',
-            'root' => base_path('public/images'),
+            'root' => base_path('public/files'),
             'url' => env('APP_URL').'/files',
         ],
 
