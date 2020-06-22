@@ -3,8 +3,8 @@
 @section('title', __('basket.cart'))
 
 @section('content')
+    <div class="starter-template">
     <h1>@lang('basket.cart')</h1>
-    <p>@lang('basket.ordering')</p>
     <div class="panel">
         <table class="table table-striped">
             <thead>
@@ -53,5 +53,6 @@
         <div class="btn-group pull-right" role="group">
             <a type="button" class="btn btn-success" href="{{ route('basket-place') }}">@lang('basket.place_order')</a>
         </div>
+    </div>
     </div>
 @endsection

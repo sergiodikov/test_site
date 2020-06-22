@@ -3,7 +3,8 @@
 @section('title', 'Заказы')
 
 @section('content')
-    <div class="col-md-12">
+    <div class="starter-template">
+
         <h1>Заказы</h1>
         <table class="table">
             <tbody>
@@ -40,7 +41,7 @@
                                @admin
                                href="{{ route('orders.show', $order) }}"
                                @else
-                               href="{{ route('person.orders.show', $order) }}"
+                               href="{{ route('personal.orders.show', $order) }}"
                                 @endadmin
                             >Открыть</a>
                         </div>
@@ -50,5 +51,6 @@
             </tbody>
         </table>
         {{ $orders->links() }}
+
     </div>
 @endsection
