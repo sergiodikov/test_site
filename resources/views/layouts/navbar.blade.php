@@ -26,10 +26,10 @@
                 </li>
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                        <a class="nav-link" href="{{ route('login') }}">@lang('main.login')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Зарегистрироваться</a>
+                        <a class="nav-link" href="{{ route('register') }}">@lang('main.register')</a>
                     </li>
                 @endguest
 
@@ -39,20 +39,20 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false" v-pre>
-                            @admin Администратор @else {{ Auth::user()->name }} @endadmin
+                            @admin @lang('main.administrator') @else {{ Auth::user()->name }} @endadmin
                         </a>
                         <ul class="dropdown-menu">
                             @admin
-                            <li><a href="{{ route('categories.index') }}">Ред. Категории</a></li>
-                            <li><a href="{{ route('products.index') }}">Ред. Товары</a>
-                            <li><a href="{{ route('properties.index') }}">Ред. Свойства</a></li>
-                            <li><a href="{{ route('home') }}">Все заказы</a></li>
+                            <li><a href="{{ route('categories.index') }}">@lang('main.category_editing')</a></li>
+                            <li><a href="{{ route('products.index') }}">@lang('main.product_editing')</a>
+                            <li><a href="{{ route('properties.index') }}">@lang('main.property_editing')</a></li>
+                            <li><a href="{{ route('home') }}">@lang('main.all_orders')</a></li>
                             @endadmin
                             <li><a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout')}}"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    Выйти
+                                    @lang('main.logout')
                                 </a></li>
                         </ul>
                         <form id="logout-form" action="{{ route('logout')}}" method="POST"

@@ -7,16 +7,16 @@
         <div class="container">
             <div class="justify-content-center">
                 <div class="panel">
-                    <h1>Заказ №{{ $order->id }}</h1>
-                    <p>Заказчик: <b>{{ $order->name }}</b></p>
-                    <p>Номер телефона: <b>{{ $order->phomne }}</b></p>
+                    <h1>@lang('order.order') №{{ $order->id }}</h1>
+                    <p>@lang('order.client') <b>{{ $order->name }}</b></p>
+                    <p>@lang('order.phone_number') <b>{{ $order->phomne }}</b></p>
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Название</th>
-                            <th>Кол-во</th>
-                            <th>Цена</th>
-                            <th>Стоимость</th>
+                            <th>@lang('order.name_product')</th>
+                            <th>@lang('order.quantity')</th>
+                            <th>@lang('order.price')</th>
+                            <th>@lang('order.cost')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,7 +35,7 @@
                             </tr>
                         @endforeach
                         <tr>
-                            <td colspan="3">Общая стоимость:</td>
+                            <td colspan="3">@lang('order.total_cost')</td>
                             <td>{{ $order->sum }} {{ $order->currency->symbol }}</td>
                         </tr>
                         </tbody>

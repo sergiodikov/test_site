@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <h1>Заказы</h1>
+        <h1>@lang('order.order')</h1>
         <table class="table">
             <tbody>
             <tr>
@@ -12,19 +12,19 @@
                     #
                 </th>
                 <th>
-                    Имя
+                    @lang('order.name')
                 </th>
                 <th>
-                    Телефон
+                    @lang('order.phone')
                 </th>
                 <th>
-                    Когда отправлен
+                    @lang('order.when_sent')
                 </th>
                 <th>
-                    Сумма
+                    @lang('order.price')
                 </th>
                 <th>
-                    Действия
+                    @lang('order.action')
                 </th>
             </tr>
             @foreach($orders as $order)
@@ -42,7 +42,7 @@
                                @else
                                href="{{ route('person.orders.show', $order) }}"
                                 @endadmin
-                            >Открыть</a>
+                            >@lang('order.open')</a>
                         </div>
                     </td>
                 </tr>

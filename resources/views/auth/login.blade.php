@@ -2,7 +2,7 @@
 @section('title', 'Авторизация')
 
 @section('content')
-    <div class="page-header text-center"><h1>Авторизация</h1></div>
+    <div class="page-header text-center"><h1>@lang('login.login')</h1></div>
     <div class="row">
         <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
             <form method="POST" action="{{route('login')}}" aria-label="Login">
@@ -23,14 +23,14 @@
                 </div>
 
                 <div class="form-group ">
-                    <label for="password" class="">Пароль</label>
+                    <label for="password" class="">@lang('login.password')</label>
                     <input id="password" type="password" class="form-control"
                            name="password" required>
                 </div>
                 <div class="form-group row centered">
                     <div class="">
                         <button type="submit" class="btn btn-primary">
-                            Войти
+                            @lang('login.login_button')
                         </button>
                     </div>
                 </div>
