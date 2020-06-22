@@ -3,62 +3,54 @@
 
 @section('content')
 
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">Регистрация</div>
+    <div class="page-header text-center"><h1>Регистрация</h1></div>
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
             <form method="POST" action="{{route('register')}}" aria-label="Register">
                 @csrf
 
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Имя</label>
-
-                    <div class="col-md-6">
-                        <input id="name" type="text" class="form-control" name="name"
-                               value="" required autofocus>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
+                @endif
+
+                <div class="form-group ">
+                    <label for="name" class="">Имя</label>
+                    <input id="name" type="text" class="form-control" name="name"
+                           value="" required autofocus>
                 </div>
 
-                <div class="form-group row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail</label>
-
-                    <div class="col-md-6">
-                        <input id="email" type="email" class="form-control"
-                               name="email" value="" required>
-
-                    </div>
+                <div class="form-group">
+                    <label for="email" class="">E-Mail</label>
+                    <input id="email" type="email" class="form-control"
+                           name="email" value="" required>
                 </div>
 
-                <div class="form-group row">
-                    <label for="password" class="col-md-4 col-form-label text-md-right">Пароль</label>
-
-                    <div class="col-md-6">
-                        <input id="password" type="password" class="form-control"
-                               name="password" required>
-
-                    </div>
+                <div class="form-group">
+                    <label for="password" class="">Пароль</label>
+                    <input id="password" type="password" class="form-control"
+                           name="password" required>
                 </div>
 
-                <div class="form-group row">
-                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Подтвердите
-                        пароль</label>
-
-                    <div class="col-md-6">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                               required>
-                    </div>
+                <div class="form-group ">
+                    <label for="password-confirm" class="">Подтвердите пароль</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                           required>
                 </div>
 
-                <div class="form-group row mb-0">
-                    <div class="col-md-6 offset-md-4">
+                <div class="form-group row centered">
+                    <div class="col-sm-4 col-md-4">
                         <button type="submit" class="btn btn-primary">
                             Зарегистрироваться
                         </button>
                     </div>
                 </div>
             </form>
-            <div class="card-body">
-
-            </div>
         </div>
     </div>
 

@@ -7,10 +7,12 @@ return [
     'categories' => 'Categories',
     'all_categories' => 'All categories',
     'category' => 'Category ',
-    'cart' => 'Your cart',
+    'cart' => 'Cart',
     'reset_project' => 'Reset project to default state',
     'current_lang' => 'en',
+    'current_lang_title' => '🇬🇧EN',
     'set_lang' => 'ru',
+    'set_lang_title' => '🇷🇺RU',
     'properties' => [
         'hit' => 'Hit',
         'recommend' => 'Recommend',
