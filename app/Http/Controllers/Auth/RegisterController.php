@@ -29,7 +29,7 @@ class RegisterController extends Controller
         if (Auth::user()->isAdmin()) {
             return route('home');
         } else {
-            return route('person.orders.index');
+            return route('personal.orders.index');
         }
     }
 
@@ -54,7 +54,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'max:30', 'confirmed'],
         ]);
     }
 

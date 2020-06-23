@@ -1,9 +1,21 @@
 body {
-    padding-top: 40px;
+    padding-top: 60px;
+}
+
+div.content {
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #99979c;
+    background-color: #2a2730;
 }
 
 .starter-template {
-    padding: 20px 15px;
+    /*padding: 20px 15px;*/
     text-align: center;
 }
 
@@ -46,12 +58,7 @@ div.filters {
     padding-bottom: 5px;
 }
 
-footer {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    color: #99979c;
-    background-color: #2a2730;
-}
+
 
 .dropdown-toggle:after {
     display: inline-block;

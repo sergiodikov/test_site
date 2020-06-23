@@ -29,10 +29,12 @@ Route::middleware(['set_locale'])->group(function () {
 
     Route::middleware(['auth'])->group(function () {
         Route::group([
-            'prefix' => 'person',
-            'namespace' => 'Person',
-            'as' => 'person.',
+            'prefix' => 'personal',
+            'namespace' => 'Personal',
+            'as' => 'personal.',
         ], function () {
+            Route::get('/profile', 'ProfileController@update')->name('profile.show');
+            Route::post('/profile', 'ProfileController@update')->name('profile.update');
             Route::get('/orders', 'OrderController@index')->name('orders.index');
             Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
         });

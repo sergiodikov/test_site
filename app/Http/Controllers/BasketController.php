@@ -6,6 +6,8 @@ use App\Classes\Basket;
 use App\Models\Sku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class BasketController extends Controller
 {
@@ -17,6 +19,13 @@ class BasketController extends Controller
 
     public function basketConfirm(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'min:11', 'max:20'],
+            'email' => ['string', 'email', 'max:255', Rule::requiredIf(!Auth::check())],
+        ]);
+        $validator->validate();
+
         $email = Auth::check() ? Auth::user()->email : $request->email;
         if ((new Basket())->saveOrder($request->name, $request->phone, $email)) {
             session()->flash('success', __('basket.you_order_confirmed'));
@@ -48,7 +57,7 @@ class BasketController extends Controller
             session()->flash('warning', $skus->product->__('name') . __('basket.not_available_more'));
         }
 
-        return redirect()->route('basket');
+        return back();
     }
 
     public function basketRemove(Sku $skus)

@@ -3,6 +3,8 @@
 @section('title', __('main.all_categories'))
 
 @section('content')
+    <div class="starter-template">
+    <div class="page-header text-center"><h1>Категории</h1></div>
     @foreach($categories as $category)
         <div class="panel">
             <a href="{{ route('category', $category->code) }}">
@@ -14,4 +16,5 @@
             </p>
         </div>
     @endforeach
+    </div>
 @endsection

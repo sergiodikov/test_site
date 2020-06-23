@@ -3,6 +3,13 @@
 @section('title', __('main.product'))
 
 @section('content')
+    <ol class="breadcrumb">
+        <li><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
+        <li><a href="{{ route('category', $skus->product->category->code) }}">{{ $skus->product->category->name }}</a></li>
+        <li class="active">{{ $skus->product->__('name') }}</li>
+
+    </ol>
+    <div class="starter-template">
     <h1>{{ $skus->product->__('name') }}</h1>
     <h2>{{ $skus->product->category->name }}</h2>
     <p>@lang('product.price'): <b>{{ \App\Models\Product::getPriceAttribute($skus->price) }} {{ $currencySymbol }}</b></p>
@@ -38,4 +45,5 @@
             <button type="submit">@lang('product.subscribe')</button>
         </form>
     @endif
+    </div>
 @endsection
