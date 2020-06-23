@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-@section('title', __('main.all_categories'))
+@section('title', __('main.categories'))
 
 @section('content')
     <div class="starter-template">
-    <div class="page-header text-center"><h1>Категории</h1></div>
+    <div class="page-header text-center"><h1>@lang('main.categories')</h1></div>
     @foreach($categories as $category)
         <div class="panel">
             <a href="{{ route('category', $category->code) }}">

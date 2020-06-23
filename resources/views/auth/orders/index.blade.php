@@ -1,6 +1,6 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Заказы')
+@section('title', __('main.my_orders'))
 
 @section('content')
     <div class="starter-template">

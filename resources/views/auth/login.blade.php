@@ -1,5 +1,5 @@
 @extends('auth.layouts.master')
-@section('title', 'Авторизация')
+@section('title', __('login.login'))
 
 @section('content')
     <div class="page-header text-center"><h1>@lang('login.login')</h1></div>

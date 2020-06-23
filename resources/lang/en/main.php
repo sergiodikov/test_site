@@ -31,6 +31,7 @@ return [
     'property_editing'=> 'Property edit',
     'all_orders'=> 'All orders',
     'my_orders' => 'My orders',
+    'profile'=>'Profile',
     'admin_panel' => 'Admin panel',
     'title' => 'Main',
     'rub' => 'rub',
@@ -40,4 +41,5 @@ return [
     'project_reset' => 'The Project was reset',
     'product_categories' =>'Product categories',
     'most_popular_products'=>'Most popular products',
+    'up'=>'Вернуться на верх',
 ];

@@ -31,6 +31,7 @@ return [
     'property_editing'=> 'Ред свойства',
     'all_orders'=> 'Все заказы',
     'my_orders' => 'Мои заказы',
+    'profile'=>'Профиль',
     'admin_panel' => 'Панель администратора',
     'title' => 'Главная',
     'rub' => 'руб',
@@ -39,5 +40,6 @@ return [
     'not_available' => 'Не доступен',
     'project_reset' => 'Проект был сброшен в начальное состояние',
     'product_categories' =>'Категории товаров',
-    'most_popular_products'=>'Самые популярные товары'
+    'most_popular_products'=>'Самые популярные товары',
+    'up'=>'Up',
 ];

@@ -48,7 +48,7 @@
                             <li><a href="{{ route('home') }}">@lang('main.all_orders')</a></li>
                             @endadmin
                             <li><a href="{{ route('personal.orders.index') }}">@lang('main.my_orders')</a></li>
-                            <li><a href="{{ route('personal.profile.show') }}">Профиль</a></li>
+                            <li><a href="{{ route('personal.profile.show') }}">@lang('main.profile')</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout')}}"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

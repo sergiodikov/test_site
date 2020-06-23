@@ -1,6 +1,6 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Заказ ' . $order->id)
+@section('title', __('order.order') . $order->id)
 
 @section('content')
     <ol class="breadcrumb">
