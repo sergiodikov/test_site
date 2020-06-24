@@ -51,7 +51,7 @@
                     @foreach ($bestSkus as $bestSku)
                         <li class="text-center"><a href="{{ route('sku',
                 [$bestSku->product->category->code, $bestSku->product->code, $bestSku]) }}">
-                                {{ $bestSku->product->__('name') }}</a></li>
+                                {{ $bestSku->product->__('name') }}: {{ $bestSku->getName() }}</a></li>
                     @endforeach
                 </ul>
             </div>
