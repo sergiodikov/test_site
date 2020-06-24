@@ -3,8 +3,14 @@
 @section('title', 'Вариант свойства ' . $propertyOption->name)
 
 @section('content')
-    <div class="col-md-12">
-        <h1>Вариант свойства {{ $propertyOption->name }}</h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ route('properties.index') }}">Свойства</a></li>
+        <li><a href="{{ route('property-options.index', $property) }}">Варианты свойства: {{ $property->name }}</a></li>
+        <li class="active">Значение свойства: {{ $property->name }}, {{ $propertyOption->name }}</li>
+    </ol>
+    <div class="page-header text-center">
+        <h1>Значение свойства {{ $propertyOption->name }}</h1>
+    </div>
         <table class="table">
             <tbody>
             <tr>
@@ -33,5 +39,4 @@
             </tr>
             </tbody>
         </table>
-    </div>
 @endsection

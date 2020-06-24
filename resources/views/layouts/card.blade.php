@@ -14,46 +14,46 @@
             @endif
         </div>
         <img src="{{ Storage::url($sku->product->image) }}" alt="{{ $sku->product->__('name') }}">
-        <p class="caption">
+        <div class="caption">
             <h3>{{ $sku->product->__('name') }}</h3>
             @isset($sku->product->properties)
                 @foreach ($sku->propertyOptions as $propertyOption)
                     <h4>{{ $propertyOption->property->__('name') }}: {{ $propertyOption->__('name') }}</h4>
                 @endforeach
             @endisset
-            <p>{{ $sku->price }} {{ $currencySymbol }}</p>
-            <p>
-                <form action="{{ route('basket-add', $sku) }}" method="POST">
-                    @csrf
-                        <div class="row centered">
-                            <div class="col-xs-6 col-sm-8 col-md-8">
+            <h4>@lang('main.properties.price'): {{ \App\Models\Product::getPriceAttribute($sku->price) }} {{ $currencySymbol }}</h4>
+            <h4>@lang('main.properties.count'): {{ $sku->count }}</h4>
 
-                                @if($sku->isAvailable())
-                                    <button type="submit" class="btn  btn-primary btn-sm btn-block" role="button">@lang('main.add_to_basket')</button>
+            <form action="{{ route('basket-add', $sku) }}" method="POST">
+                @csrf
+                    <div class="row centered">
+                        <div class="col-xs-6 col-sm-8 col-md-8">
+
+                            @if($sku->isAvailable())
+                                <button type="submit" class="btn  btn-success btn-sm btn-block" role="button">@lang('main.add_to_basket')</button>
+                            @else
+                                <div class="alert alert-info" role="alert">@lang('main.not_available')</div>
+                            @endif
+                            <a href="{{ route('sku',
+                            [isset($category) ? $category->code :
+                            $sku->product->category->code, $sku->product->code, $sku->id]) }}"
+                               class="btn btn-default btn-sm btn-block"
+                               role="button">@lang('main.more')</a>
+
+                            @auth
+                                @if(!in_array($sku->id, Auth::user()->getFavoritesSkuIds()))
+                                    <a href="{{ route('personal.favorites.skus.add', [$sku->id]) }}"
+                                       class="btn btn-primary btn-sm btn-block"
+                                       role="button">@lang('main.add_to_favorites')</a>
                                 @else
-                                    @lang('main.not_available')
+                                    <a href="{{ route('personal.favorites.skus.remove', [$sku->id]) }}"
+                                       class="btn btn-danger btn-sm btn-block"
+                                       role="button">@lang('main.delete_from_favorites')</a>
                                 @endif
-                                <a href="{{ route('sku',
-                                [isset($category) ? $category->code :
-                                $sku->product->category->code, $sku->product->code, $sku->id]) }}"
-                                   class="btn btn-default btn-sm btn-block"
-                                   role="button">@lang('main.more')</a>
-
-                                @auth
-                                    @if(!in_array($sku->id, Auth::user()->getFavoritesSkuIds()))
-                                        <a href="{{ route('personal.favorites.skus.add', [$sku->id]) }}"
-                                           class="btn btn-success btn-sm btn-block"
-                                           role="button">@lang('main.add_to_favorites')</a>
-                                    @else
-                                        <a href="{{ route('personal.favorites.skus.remove', [$sku->id]) }}"
-                                           class="btn btn-danger btn-sm btn-block"
-                                           role="button">@lang('main.delete_from_favorites')</a>
-                                    @endif
-                                @endauth
-                            </div>
+                            @endauth
                         </div>
-                </form>
-            </p>
-        </p>
+                    </div>
+            </form>
+        </div>
     </div>
 </div>

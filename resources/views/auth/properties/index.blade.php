@@ -3,8 +3,11 @@
 @section('title', 'Свойства')
 
 @section('content')
-    <div class="col-md-12">
-        <h1>Свойства</h1>
+
+    <div class="page-header text-center"><h1>Свойства</h1></div>
+        <a class="btn btn-success" type="button"
+           href="{{ route('properties.create') }}">Добавить свойство</a>
+        <hr>
         <table class="table">
             <tbody>
             <tr>
@@ -38,7 +41,4 @@
             </tbody>
         </table>
         {{ $properties->links() }}
-        <a class="btn btn-success" type="button"
-           href="{{ route('properties.create') }}">Добавить свойство</a>
-    </div>
 @endsection

@@ -8,11 +8,23 @@
 
 @section('content')
 
+    <ol class="breadcrumb">
+        <li><a href="{{ route('products.index') }}">Товары</a></li>
+        <li><a href="{{ route('skus.index', $product) }}">Товарные предложения, {{ $product->name }}</a></li>
+        <li class="active">
+            @isset($sku)
+                Редактирование Sku {{ $sku->product->name }}: {{ $sku->getName() }}
+            @else
+                Добавление Sku
+            @endisset
+
+        </li>
+    </ol>
     <div class="page-header text-center">
         @isset($sku)
-            <h1>Редактировать Sku <b>{{ $sku->name }}</b></h1>
+            <h1>Редактирование Sku {{ $sku->product->name }}: {{ $sku->getName() }}</h1>
         @else
-            <h1>Добавить Sku</h1>
+            <h1>Добавление Sku</h1>
         @endisset
     </div>
 

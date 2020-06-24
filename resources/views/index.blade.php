@@ -62,8 +62,20 @@
     </div>
 
     <div class="row text-center">
+        @php
+            $i=0;
+        @endphp
         @foreach($skus as $sku)
+            @php
+                $i++
+            @endphp
             @include('layouts.card', compact('sku'))
+            @if($i%2)
+                <div class="clearfix visible-sm-block"></div>
+            @endif
+            @if($i%3)
+                <div class="clearfix visible-md-block"></div>
+            @endif
         @endforeach
     </div>
     {{ $skus->links() }}

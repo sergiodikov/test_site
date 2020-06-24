@@ -36,17 +36,16 @@ class SkuController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Product  $product
+     * @param SkuRequest $request
+     * @param Product $product
      * @return void
      */
     public function store(SkuRequest $request, Product $product)
     {
         $params = $request->all();
         $params['product_id'] = $request->product->id;
-        $skus = Sku::create($params);
-        $skus->propertyOptions()->sync($request->property_id);
+        $sku = Sku::create($params);
+        $sku->propertyOptions()->sync($request->property_id);
         return redirect()->route('skus.index', $product);
     }
 
@@ -79,15 +78,15 @@ class SkuController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  Product  $product
-     * @param  Sku  $skus
+     * @param  Sku  $sku
      * @return void
      */
-    public function update(Request $request, Product $product, Sku $skus)
+    public function update(Request $request, Product $product, Sku $sku)
     {
         $params = $request->all();
         $params['product_id'] = $request->product->id;
-        $skus->update($params);
-        $skus->propertyOptions()->sync($request->property_id);
+        $sku->update($params);
+        $sku->propertyOptions()->sync($request->property_id);
         return redirect()->route('skus.index', $product);
     }
 
@@ -95,13 +94,13 @@ class SkuController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Product  $product
-     * @param  Sku  $skus
+     * @param  Sku  $sku
      * @return void
      * @throws \Exception
      */
-    public function destroy(Product $product, Sku $skus)
+    public function destroy(Product $product, Sku $sku)
     {
-        $skus->delete();
+        $sku->delete();
         return redirect()->route('skus.index', $product);
     }
 }

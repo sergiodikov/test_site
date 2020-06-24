@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
                 <li @routeactive('basket*')><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
-                <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang_title')</a></li>
+                <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $currencySymbol }}</a>
                     <ul class="dropdown-menu">

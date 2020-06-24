@@ -26,6 +26,11 @@ class Product extends Model
         return $this->hasMany(Sku::class);
     }
 
+    public function countSkus()
+    {
+        return $this->skus()->count();
+    }
+
     public function properties()
     {
         return $this->belongsToMany(Property::class, 'property_product')->withTimestamps();

@@ -7,12 +7,22 @@
 @endisset
 
 @section('content')
+    <ol class="breadcrumb">
+        <li><a href="{{ route('products.index') }}">Товары</a></li>
+        <li class="active">
+            @isset($product)
+                Редактирование товара <b>{{ $product->name }}</b>
+            @else
+                Добавление товара
+            @endisset
+        </li>
+    </ol>
 
     <div class="page-header text-center">
         @isset($product)
-            <h1>Редактировать товар <b>{{ $product->name }}</b></h1>
+            <h1>Редактирование товар <b>{{ $product->name }}</b></h1>
         @else
-            <h1>Добавить товар</h1>
+            <h1>Добавление товар</h1>
         @endisset
     </div>
     <div class="row">

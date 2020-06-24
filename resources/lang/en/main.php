@@ -17,6 +17,8 @@ return [
         'hit' => 'Hit',
         'recommend' => 'Recommend',
         'new' => 'New',
+        'price' => 'Price',
+        'count' => 'Stock balance',
     ],
     'filter' => 'Filter',
     'reset' => 'Reset',
@@ -45,5 +47,5 @@ return [
     'project_reset' => 'The Project was reset',
     'product_categories' =>'Product categories',
     'most_popular_products'=>'Most popular products',
-    'up'=>'Вернуться на верх',
+    'up'=>'Up',
 ];
