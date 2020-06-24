@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkuPropertyOptionTable extends Migration
+class AlterToOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateSkuPropertyOptionTable extends Migration
      */
     public function up()
     {
-        Schema::create('sku_property_option', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('property_option_id');
-            $table->unsignedInteger('sku_id');
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->text('address')->default('');
+            $table->text('comment')->default('');
         });
     }
 
@@ -28,6 +26,9 @@ class CreateSkuPropertyOptionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sku_property_option');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('address');
+            $table->dropColumn('comment');
+        });
     }
 }

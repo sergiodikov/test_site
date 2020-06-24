@@ -58,43 +58,4 @@ class ProfileController extends Controller
 
         return view('auth.profile', compact('user'));
     }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return ;
-    }
-
-    /**
-     * Handle a registration request for the application.
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function register(Request $request)
-    {
-        $user =
-        $data = $request->post();
-
-
-        if (!empty($data)) {
-
-        }
-
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        $this->guard()->login($user);
-
-        if ($response = $this->registered($request, $user)) {
-            return $response;
-        }
-
-        return view('auth.profile', compact());
-    }
 }

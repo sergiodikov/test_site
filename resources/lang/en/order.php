@@ -14,6 +14,8 @@ return [
     'order'=>'Order',
     'client'=>'Client:',
     'phone_number'=>'Phone number:',
+    'address' => 'Delivery address:',
+    'comment' => 'Comment to the order:',
     'name_product'=>'Name',
     'quantity'=>'Quantity',
     'price'=>'Price',

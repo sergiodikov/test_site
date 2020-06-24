@@ -24,5 +24,7 @@ return [
         'name' => 'Name',
         'email' => 'Email',
         'phone' => 'Phone number',
+        'address' => 'Delivery address',
+        'comment' => 'Comment to the order',
     ],
 ];

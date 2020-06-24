@@ -10,7 +10,9 @@
     <div class="starter-template">
         <h1>@lang('order.order') №{{ $order->id }}</h1>
         <p>@lang('order.client') <b>{{ $order->name }}</b></p>
-        <p>@lang('order.phone_number') <b>{{ $order->phomne }}</b></p>
+        <p>@lang('order.phone_number') <b>{{ $order->phone }}</b></p>
+        <p>@lang('order.address') <b>{{ $order->address }}</b></p>
+        <p>@lang('order.comment') <b>{{ $order->comment }}</b></p>
         <table class="table table-striped">
             <thead>
             <tr>

@@ -22,12 +22,14 @@ class BasketController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'min:11', 'max:20'],
+            'address' => ['required', 'string', 'min:2', 'max:2048'],
+            'comment' => ['string', 'max:2048'],
             'email' => ['string', 'email', 'max:255', Rule::requiredIf(!Auth::check())],
         ]);
         $validator->validate();
 
         $email = Auth::check() ? Auth::user()->email : $request->email;
-        if ((new Basket())->saveOrder($request->name, $request->phone, $email)) {
+        if ((new Basket())->saveOrder($request->name, $request->phone, $request->address, $request->comment, $email)) {
             session()->flash('success', __('basket.you_order_confirmed'));
         } else {
             session()->flash('warning', __('basket.you_cant_order_more'));

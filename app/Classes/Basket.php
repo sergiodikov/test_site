@@ -66,12 +66,12 @@ class Basket
         return true;
     }
 
-    public function saveOrder($name, $phone, $email)
+    public function saveOrder($name, $phone, $address, $comment, $email)
     {
         if (!$this->countAvailable(true)) {
             return false;
         }
-        $this->order->saveOrder($name, $phone);
+        $this->order->saveOrder($name, $phone, $address, $comment);
 //        Mail::to($email)->send(new OrderCreated($name, $this->getOrder()));
         return true;
     }

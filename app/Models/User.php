@@ -46,4 +46,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function favoriteSkus()
+    {
+        return $this->belongsToMany(Sku::class, 'user_favorite_skus')->withTimestamps();
+    }
+
+    public function getFavoritesSkuIds():array {
+        $result = [];
+        $collection = $this->favoriteSkus()->select('sku_id')->get();
+        foreach ($collection as $item) {
+            $result[] = $item->sku_id;
+        }
+        return $result;
+    }
 }

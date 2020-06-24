@@ -43,10 +43,12 @@ class Order extends Model
         return $sum;
     }
 
-    public function saveOrder($name, $phone)
+    public function saveOrder($name, $phone, $address, $comment)
     {
         $this->name = $name;
         $this->phone = $phone;
+        $this->address = $address;
+        $this->comment = $comment;
         $this->status = 1;
         $this->sum = $this->getFullSum();
 

@@ -30,18 +30,28 @@
 
                         <div class="form-group ">
                             <label for="name">@lang('basket.data.name')</label>
-                            <input type="text" name="name" id="name" value="" class="form-control">
+                            <input type="text" name="name" id="name" value="" class="form-control" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="phone">@lang('basket.data.phone')</label>
-                            <input type="text" name="phone" id="phone" value="" class="form-control">
+                            <input type="text" name="phone" id="phone" value="" class="form-control" required>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="address">@lang('basket.data.address')</label>
+                            <textarea name="address" id="address" class="form-control" rows="3" required style="resize: vertical"></textarea>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="comment">@lang('basket.data.comment')</label>
+                            <textarea name="comment" id="comment" class="form-control" rows="3" style="resize: vertical"></textarea>
                         </div>
 
                         @guest
                         <div class="form-group ">
                             <label for="email">@lang('basket.data.email')</label>
-                            <input type="text" name="email" id="email" value="" class="form-control">
+                            <input type="text" name="email" id="email" value="" class="form-control" >
                         </div>
                         @endguest
 

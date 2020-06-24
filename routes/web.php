@@ -37,6 +37,15 @@ Route::middleware(['set_locale'])->group(function () {
             Route::post('/profile', 'ProfileController@update')->name('profile.update');
             Route::get('/orders', 'OrderController@index')->name('orders.index');
             Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
+
+            Route::group([
+                'prefix' => 'favorites',
+                'as' => 'favorites.',
+            ], function () {
+                Route::get('/', 'FavoriteSkusController@favoriteSkus')->name('skus.show');
+                Route::get('{sku_id}/add', 'FavoriteSkusController@addFavoriteSku')->name('skus.add');
+                Route::get('{sku_id}/remove', 'FavoriteSkusController@removeFavoriteSku')->name('skus.remove');
+            });
         });
 
         Route::group([

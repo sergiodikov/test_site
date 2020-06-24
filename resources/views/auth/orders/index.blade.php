@@ -5,7 +5,7 @@
 @section('content')
     <div class="starter-template">
 
-        <h1>@lang('order.order')</h1>
+        <h1>@lang('order.orders')</h1>
         <table class="table">
             <tbody>
             <tr>
@@ -13,7 +13,7 @@
                     #
                 </th>
                 <th>
-                    @lang('order.name')
+                    @lang('order.name_client')
                 </th>
                 <th>
                     @lang('order.phone')
