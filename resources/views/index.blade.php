@@ -70,10 +70,10 @@
                 $i++
             @endphp
             @include('layouts.card', compact('sku'))
-            @if($i%2)
+            @if(!($i%2))
                 <div class="clearfix visible-sm-block"></div>
             @endif
-            @if($i%3)
+            @if(!($i%3))
                 <div class="clearfix visible-lg-block visible-md-block"></div>
             @endif
         @endforeach
