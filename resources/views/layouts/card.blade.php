@@ -39,16 +39,17 @@
                                    class="btn btn-default btn-sm btn-block"
                                    role="button">@lang('main.more')</a>
 
-                                @if(!in_array($sku->id, Auth::user()->getFavoritesSkuIds()))
-                                    <a href="{{ route('personal.favorites.skus.add', [$sku->id]) }}"
-                                       class="btn btn-success btn-sm btn-block"
-                                       role="button">@lang('main.add_to_favorites')</a>
-                                @else
-                                    <a href="{{ route('personal.favorites.skus.remove', [$sku->id]) }}"
-                                       class="btn btn-danger btn-sm btn-block"
-                                       role="button">@lang('main.delete_from_favorites')</a>
-                                @endif
-
+                                @auth
+                                    @if(!in_array($sku->id, Auth::user()->getFavoritesSkuIds()))
+                                        <a href="{{ route('personal.favorites.skus.add', [$sku->id]) }}"
+                                           class="btn btn-success btn-sm btn-block"
+                                           role="button">@lang('main.add_to_favorites')</a>
+                                    @else
+                                        <a href="{{ route('personal.favorites.skus.remove', [$sku->id]) }}"
+                                           class="btn btn-danger btn-sm btn-block"
+                                           role="button">@lang('main.delete_from_favorites')</a>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
                 </form>
