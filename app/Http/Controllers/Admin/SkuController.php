@@ -54,24 +54,24 @@ class SkuController extends Controller
      * Display the specified resource.
      *
      * @param  Product  $product
-     * @param  Sku  $skus
+     * @param  Sku  $sku
      * @return void
      */
-    public function show(Product $product, Sku $skus)
+    public function show(Product $product, Sku $sku)
     {
-        return view('auth.skus.show', compact('product', 'skus'));
+        return view('auth.skus.show', compact('product', 'sku'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  Product  $product
-     * @param  Sku  $skus
+     * @param  Sku  $sku
      * @return void
      */
-    public function edit(Product $product, Sku $skus)
+    public function edit(Product $product, Sku $sku)
     {
-        return view('auth.skus.form', compact('product', 'skus'));
+        return view('auth.skus.form', compact('product', 'sku'));
     }
 
     /**
