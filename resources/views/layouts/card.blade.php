@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4 col-lg-4">
     <div class="thumbnail">
         <div class="labels">
             @if($sku->product->isNew())

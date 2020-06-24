@@ -74,7 +74,7 @@
                 <div class="clearfix visible-sm-block"></div>
             @endif
             @if($i%3)
-                <div class="clearfix visible-md-block"></div>
+                <div class="clearfix visible-lg-block visible-md-block"></div>
             @endif
         @endforeach
     </div>

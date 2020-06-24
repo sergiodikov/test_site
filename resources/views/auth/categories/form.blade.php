@@ -7,26 +7,27 @@
 @endisset
 
 @section('content')
-    <div class="col-md-12">
+    <div class="page-header text-center">
         @isset($category)
             <h1>Редактировать Категорию <b>{{ $category->name }}</b></h1>
         @else
             <h1>Добавить Категорию</h1>
         @endisset
-
-        <form method="POST" enctype="multipart/form-data"
-              @isset($category)
-              action="{{ route('categories.update', $category) }}"
-              @else
-              action="{{ route('categories.store') }}"
-            @endisset
-        >
-            <div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST" enctype="multipart/form-data"
+                  @isset($category)
+                  action="{{ route('categories.update', $category) }}"
+                  @else
+                  action="{{ route('categories.store') }}"
+                @endisset
+            >
                 @isset($category)
                     @method('PUT')
                 @endisset
                 @csrf
-                <div class="input-group row">
+                <div class="form-group row">
                     <label for="code" class="col-sm-2 col-form-label">Код: </label>
                     <div class="col-sm-6">
                         @error('code')
@@ -37,7 +38,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="input-group row">
+                <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Название: </label>
                     <div class="col-sm-6">
                         @error('name')
@@ -49,7 +50,7 @@
                 </div>
 
                 <br>
-                <div class="input-group row">
+                <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Название en: </label>
                     <div class="col-sm-6">
                         @error('name_en')
@@ -61,7 +62,7 @@
                 </div>
 
                 <br>
-                <div class="input-group row">
+                <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание: </label>
                     <div class="col-sm-6">
                         @error('description')
@@ -73,7 +74,7 @@
                 </div>
                 <br>
 
-                <div class="input-group row">
+                <div class="form-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание en: </label>
                     <div class="col-sm-6">
                         @error('description_en')
@@ -85,7 +86,7 @@
                 </div>
                 <br>
 
-                <div class="input-group row">
+                <div class="form-group row">
                     <label for="image" class="col-sm-2 col-form-label">Картинка: </label>
                     <div class="col-sm-10">
                         <label class="btn btn-default btn-file">
@@ -94,7 +95,7 @@
                     </div>
                 </div>
                 <button class="btn btn-success">Сохранить</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 @endsection
